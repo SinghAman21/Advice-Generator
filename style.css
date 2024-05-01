@@ -45,7 +45,7 @@ body {
   text-align: center;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
+  justify-content: center;
   align-items: center;
 }
 
@@ -58,9 +58,7 @@ body {
 
 #divider {
   position: relative;
-  bottom: -3rem;
-  /* background-image: url(images/pattern-divider-desktop.svg); */
-  
+  bottom: -3rem;  
 }
 #dice {
   /* fill: var(--cyan); */
@@ -74,11 +72,9 @@ body {
   /* margin-left: 12.5rem; */
 }
 
-.advice > #dice {
-  position: absolute;
-  bottom: 18.5rem;    /* 11.5rem looks good too */
-  left: 50%;
-  transform: translateX(-50%);
+.advice > #dice{
+  position: relative;
+  bottom: -3rem;
 }
 
 #dice:hover {
@@ -87,7 +83,6 @@ body {
 
 .attribution {
     
-    text-align: center;
     color: white;
     font-weight: bold;
   font-size: 11px;
@@ -95,83 +90,4 @@ body {
 }
 .attribution a {
   color: hsl(228, 45%, 44%);
-}
-
-/* =====================
-media query
-===================== */
-@media only screen and (max-width: 376px) {
-  /* Your CSS styles for mobile devices here */
-
-  body {
-    background-color: var(--bg);
-  }
-
-  .output {
-    display: flex;
-    margin-left: 1.55rem;
-  }
-
-  #no-space {
-    font-family: "bebas";
-    letter-spacing: 8px;
-  }
-  .advice {
-    height: 20rem;
-        width: 22rem;
-    color: var(--text);
-    background-color: var(--output);
-    border-radius: 10px;
-    color: var(--cyan);
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    /* justify-content: center; */
-    align-items: center;
-  }
-
-  #text-space {
-    font-family: "semi";
-    font-weight: bold;
-    color: var(--text);
-    line-height: 1.5;
-  }
-
-  #divider {
-    position: relative;
-    bottom: -6rem;
-  }
-
-  #dice {
-    /* fill: var(--cyan); */
-    height: 4rem;
-    width: 4rem;
-    background-color: var(--cyan);
-    border-radius: 50%;
-    display: grid;
-    place-items: center;
-    margin-top: 2rem;
-    /* margin-left: 12.5rem; */
-  }
-
-  .advice > #dice {
-    position: absolute;
-    bottom: 8.2rem;
-    left: 54%;
-    transform: translateX(-50%);
-  }
-
-  #dice:hover {
-    box-shadow: 0px 0px 70px 3px var(--cyan);
-  }
-  .attribution {
-    text-align: center;
-    color: white;
-    font-weight: bold;
-    font-size: 11px;
-    text-align: center;
-  }
-  .attribution a {
-    color: hsl(228, 45%, 44%);
-  }
 }
