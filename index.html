@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="icon"
+      type="image/png"
+      sizes="32x32"
+      href="./images/favicon-32x32.png"
+    />
+    <link rel="stylesheet" href="style.css" />
+    <title>Advice Generator</title>
+    <style></style>
+  </head>
+  <body>
+    <div class="output">
+      <div class="advice">
+        <br /><br /><br />
+        <section id="no-space">
+          Advice # <span id="advice-id">1525</span
+          ><!-- Advice ID goes here -->
+        </section>
+        <br /><br />
+        <section id="text-space">
+          "
+          <span id="advice-text">
+            The coder might even forget his snippet the moment you click on that
+            dice XD!!</span
+          >"
+        </section>
+        <br />
+        <div id="divider">
+          <img src="images/pattern-divider-desktop.svg" alt="" />
+        </div>
+        <div id="dice">
+          <img src="images/icon-dice.svg" alt="" />
+        </div>
+      </div>
+      <div class="attribution">
+        Challenge by
+        <a href="https://www.frontendmentor.io?ref=challenge" target="_blank"
+          >Frontend Mentor</a
+        >. Coded by <a href="#">SinghAman21</a>.
+      </div>
+    </div>
+    
+    <script>
+      const advicedata = document.getElementById("advice-text");
+      const id = document.getElementById("advice-id");
+      const dice = document.getElementById("dice");
+      function fetchAdvice() {
+        fetch("https://api.adviceslip.com/advice")
+          .then((response) => response.json())
+          .then((data) => {
+            advicedata.innerText = data.slip.advice;
+            id.innerText = data.slip.id;
+          });
+      }
+
+      function handleDiceClick() {
+        fetchAdvice();
+      }
+
+      dice.addEventListener("click", handleDiceClick);
+
+      window.onload = fetchAdvice();
+
+      function changeImage() {
+        const image = document.getElementById("divider");
+        if (window.innerWidth <= 375) {
+          image.src = "images/pattern-divider-mobile.svg";
+        } else {
+          image.src = "images/pattern-divider-desktop.svg";
+        }
+      }
+      changeImage();
+      window.addEventListener("resize", changeImage);
+    </script>
+  </body>
+</html>
